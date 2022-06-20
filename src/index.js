@@ -1,17 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom/client'
+import { MetaMaskProvider } from "metamask-react";
+import { MoralisProvider } from "react-moralis";
+
+import { App } from './App';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <MetaMaskProvider>
+      <MoralisProvider serverUrl='https://k7xky3r8xxmu.usemoralis.com:2053/server' appId='gR3N2CCoktgV6rJBi0balDkWeQ3H0DGiZZ0uXNd4'>
+      <App />
+      </MoralisProvider>
+    </MetaMaskProvider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
